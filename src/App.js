@@ -25,11 +25,11 @@ function App() {
   };
 
   return (
-    <div>
+    <main>
       <Header />
       <AddNew onEventFormSubmit={onEventFormSubmit}/>
       <EventContainer events={events} onEventDelete={onEventDelete}/> {/* pass down events from the GET and category */}
-    </div>
+    </main>
   );
 };
 

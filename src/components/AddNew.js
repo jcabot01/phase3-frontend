@@ -8,7 +8,7 @@ function AddNew({ onEventFormSubmit }) {
   function handleFormSubmit(e) {  //handle submit of new event obj
     e.preventDefault();
 
-    const addNewEvent = {
+    const addNewEvent = { //I don't think I need to add a uuid because SQLlite3 will do it automatically
       category_name: categoryName,
       event_name: eventName,
       event_cost: eventCost 
@@ -23,7 +23,10 @@ function AddNew({ onEventFormSubmit }) {
     })
       .then((res) => res.json())
       .then((newEvent) => {
-        onEventFormSubmit(newEvent)
+        onEventFormSubmit(newEvent);
+        //need to reset the radio button to back to default (which is savings)
+        setEventName("");
+        setCategoryName("");
       })
   };
 
@@ -34,41 +37,33 @@ function handleChange(e) {
   }
 };
 
-function handleEventName(e) {
-  setEventName(e.target.value)
-};
-
-function handleEventCost(e) {
-  setEventCost(e.target.value)
-};
-
   return (
     <div>
       <h3 className='add-new-event-title'>Add New Event</h3>
         <form className='formCategories' onSubmit={handleFormSubmit}>
           <div className='radio'>
             <label>
-              <input type='radio' value='savings' checked={true} onChange={handleChange} />
+              <input type='radio' value='Savings' checked={true} onChange={handleChange} />
               Savings
             </label>
           </div>
           <div className='radio'>
             <label>
-              <input type='radio' value='checking' onChange={handleChange} />
+              <input type='radio' value='Checking' onChange={handleChange} />
               Checking
             </label>
           </div><div className='radio'>
             <label>
-              <input type='radio' value='investing' onChange={handleChange} />
+              <input type='radio' value='Investing' onChange={handleChange} />
               Investing
             </label>
           </div>
           <br></br>
           <div>
-            <input type="text" name="eventName" placeholder='Event Name' value={eventName} onChange={handleEventName} />
+            <input type="text" name="eventName" placeholder='Event Name' value={eventName} onChange={ e => setEventName(e.target.value)} />
           </div>
           <div>
-            <input type="text" name="eventCost" placeholder='Event Cost' value={eventCost} onChange={handleEventCost} />
+            <input type="text" name="eventCost" placeholder='Event Cost' value={eventCost} onChange={ e => setEventCost(e.target.value)} />
           </div>
           <button className='form-submit-btn' type='submit'>✅</button>
         </form>
