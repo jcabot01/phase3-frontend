@@ -10,7 +10,7 @@ function Header() { //need to pass down various forms of state, savingsTotal, et
   return (
     <div>
       <h1 className='pageTitle'>The Monthly Money Maximizer</h1>
-      {/* <img></img> need an image, add it to assets on GitHub */}
+      <img src="/docs/assets/pexels-pixabay-164527.jpg" alt="money rolls"></img>
       <div>
       <input type="checkbox" onChange={handleSavingsChecked}></input>
       <h4 className='headerCategories'>Savings: ${savingsTotal}</h4>
