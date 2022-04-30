@@ -10,8 +10,8 @@ function Header() { //need to pass down various forms of state, savingsTotal, et
   return (
     <div>
       <h1 className='pageTitle'>The Monthly Money Maximizer</h1>
-      <img src="/docs/assets/pexels-pixabay-164527.jpg" alt="money rolls"></img>
-      <div>
+      <img className='money-picture' src= "./images/pexels-pixabay-164527.jpg" alt="money rolls"></img>
+      {/* <div>
       <input type="checkbox" onChange={handleSavingsChecked}></input>
       <h4 className='headerCategories'>Savings: ${savingsTotal}</h4>
       </div>
@@ -22,7 +22,7 @@ function Header() { //need to pass down various forms of state, savingsTotal, et
       <div>
       <input type="checkbox" onChange={handleInvestingChecked}></input>
       <h4 className='headerCategories'>Investing: ${investingTotal}</h4>
-      </div>
+      </div> */}
 
     </div>
   );

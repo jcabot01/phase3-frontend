@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 function AddNew({ onEventFormSubmit }) {
-  const [categoryName, setCategoryName] = useState("")  //state of category
+  const [categoryId, setCategoryId] = useState("")  //state of category
   const [eventName, setEventName] = useState(""); //state of eventName
   const [eventCost, setEventCost] = useState(""); //state of amount
 
@@ -9,9 +9,9 @@ function AddNew({ onEventFormSubmit }) {
     e.preventDefault();
 
     const addNewEvent = { //I don't think I need to add a uuid because SQLlite3 will do it automatically
-      category_name: categoryName,
       event_name: eventName,
-      event_cost: eventCost 
+      event_cost: eventCost,
+      category_id: categoryId
     };
 
     fetch("http://localhost:3000/events", {
@@ -26,35 +26,36 @@ function AddNew({ onEventFormSubmit }) {
         onEventFormSubmit(newEvent);
         //need to reset the radio button to back to default (which is savings)
         setEventName("");
-        setCategoryName("");
+        setCategoryId("");
       })
   };
 
 function handleChange(e) {
   const target = e.target;
   if (target.checked) {
-    setCategoryName(target.value);
+    setCategoryId(target.value);
   }
 };
 
   return (
     <div>
       <h3 className='add-new-event-title'>Add New Event</h3>
+      
         <form className='formCategories' onSubmit={handleFormSubmit}>
           <div className='radio'>
             <label>
-              <input type='radio' value='Savings' checked={true} onChange={handleChange} />
+              <input type='radio' value="1" checked={true} onChange={handleChange} />
               Savings
             </label>
           </div>
           <div className='radio'>
             <label>
-              <input type='radio' value='Checking' onChange={handleChange} />
+              <input type='radio' value="2" onChange={handleChange} />
               Checking
             </label>
           </div><div className='radio'>
             <label>
-              <input type='radio' value='Investing' onChange={handleChange} />
+              <input type='radio' value="3" onChange={handleChange} />
               Investing
             </label>
           </div>

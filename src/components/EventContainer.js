@@ -1,17 +1,20 @@
 import React from 'react'
 import Event from './Event'
 
-function EventContainer( {events, onDeleteClick }) { // onUpdateEvent //will need to pass up "updated" state to App
+function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will need to pass up "updated" state to App
 
   //might be nice to use bootstrap table
   return (
-    <div>
-      <ul classname="eventsList">
+    <div className="eventsList">
+      <ul>
         {events.map((event) => (
           <Event
-            key={event.id}
-            event={event}
-            onDeleteClick={onDeleteClick}
+            key = {event.id}
+            id = {event.id}
+            eventName = {event.event_name}
+            eventCost = {event.event_cost}
+            category = {event.category}
+            onDeleteClick = {onDeleteClick}
             // onUpdateEvent={onUpdateEvent}
           />
         ))}

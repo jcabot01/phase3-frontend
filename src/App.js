@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"; //add useState and useEffect hooks
-// import './App.css';
+import './App.css';
 import Header from "./components/Header";
 import AddNew from "./components/AddNew";
 import EventContainer from "./components/EventContainer";
@@ -7,12 +7,12 @@ import EventContainer from "./components/EventContainer";
 
 
 function App() {
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/events")
-    .then((res) => res.json())
-    .then((eventsObjs) => setEvents([eventsObjs]))
+    fetch("http://localhost:9292/events")
+      .then((res) => res.json())
+      .then((eventsObjs) => setEvents([eventsObjs]))
   }, []);
 
   function onEventDelete(id) {
@@ -25,12 +25,16 @@ function App() {
   };
 
   return (
-    <main>
+    <>
       <Header />
       <AddNew onEventFormSubmit={onEventFormSubmit}/>
       <EventContainer events={events} onEventDelete={onEventDelete}/> {/* pass down events from the GET and category */}
-    </main>
+    </>
   );
 };
 
 export default App;
+
+{/* <Router>
+  <Nav />  //inside we have links to home(list GET), AddNew (form POST), categories
+</Router> */}
