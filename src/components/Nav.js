@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Link } from "react-router-dom";
 
-function Header() { //need to pass down various forms of state, savingsTotal, etc...
+
+
+function Nav() { //need to pass down various forms of state, savingsTotal, etc...
   // function handleSavingsChecked //=>
   // function handleCheckingChecked //=>
   // function handleInvestingChecked //=>
@@ -8,7 +11,11 @@ function Header() { //need to pass down various forms of state, savingsTotal, et
 
 
   return (
-    <div>
+    <nav>
+      <div>
+        <Link className="nav-links" to="/">Events List</Link>
+        <Link className="nav-links" to="/addnew">Add New +</Link>
+      </div>
       <h1 className='pageTitle'>The Monthly Money Maximizer</h1>
       <img className='money-picture' src= "./images/pexels-pixabay-164527.jpg" alt="money rolls"></img>
       {/* <div>
@@ -24,10 +31,10 @@ function Header() { //need to pass down various forms of state, savingsTotal, et
       <h4 className='headerCategories'>Investing: ${investingTotal}</h4>
       </div> */}
 
-    </div>
+    </nav>
   );
 };
 
-export default Header
+export default Nav
 
 //user checks a box, onCheck event, sends a callback up to App to render cards-state on the page, GET.  Need one for each category
