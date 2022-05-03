@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; //add useState and useEffect hooks
+import React, { useState, useEffect } from "react";
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
@@ -41,9 +41,9 @@ function App() {
     <Router>
       <Nav />
         <Routes>
-          <Route path ="/addnew" element={<AddNew onEventFormSubmit={onEventFormSubmit} />} />
+          <Route path ="/events/new" element={<AddNew onEventFormSubmit={onEventFormSubmit} />} />
           <Route path ="/" element={<EventContainer events={events} onDeleteClick={onDeleteClick} />} />
-          <Route path ="/edit/:id" element={<Edit onEventUpdate={onEventUpdate} />} /> 
+          <Route path ="/events/:id/edit" element={<Edit onEventUpdate={onEventUpdate} />} /> 
           <Route path ="*" element="404 Page Not Found"/>
         </Routes>
     </Router>

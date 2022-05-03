@@ -12,10 +12,15 @@ function Nav() { //need to pass down various forms of state, savingsTotal, etc..
 
   return (
     <nav>
-      <div>
-        <Link className="nav-links" to="/">Events List</Link>
-        <Link className="nav-links" to="/addnew">Add New +</Link>
+      <div className='nav-container'>
+        <div className='nav-events-list'>
+          <Link className="nav-links" to="/">Events List</Link>
+        </div>
+        <div className='nav-add-new'>
+          <Link className="nav-links" to="/events/new">Add New +</Link>
+        </div>
       </div>
+      <div className='title-picture-container'>
       <h1 className='pageTitle'>The Monthly Money Maximizer</h1>
       <img className='money-picture' src= "./images/pexels-pixabay-164527.jpg" alt="money rolls"></img>
       {/* <div>
@@ -30,7 +35,7 @@ function Nav() { //need to pass down various forms of state, savingsTotal, etc..
       <input type="checkbox" onChange={handleInvestingChecked}></input>
       <h4 className='headerCategories'>Investing: ${investingTotal}</h4>
       </div> */}
-
+      </div>
     </nav>
   );
 };

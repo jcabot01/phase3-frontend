@@ -10,8 +10,7 @@ function AddNew({ onEventFormSubmit }) {
   function handleFormSubmit(e) {  //handle submit of new event obj
     e.preventDefault();
 
-    console.log(eventName, eventCost, categoryId)
-    const addNewEvent = { //I don't think I need to add a uuid because SQLlite3 will do it automatically  
+    const addNewEvent = {
       event_name: eventName,
       event_cost: eventCost,
       category_id: categoryId
@@ -27,10 +26,6 @@ function AddNew({ onEventFormSubmit }) {
       .then((res) => res.json())
       .then((newEvent) => {
         onEventFormSubmit(newEvent);
-        setCategoryId(newEvent.categories)
-        //need to reset the radio button to back to default (which is savings)
-        // setEventName("");
-        // setCategoryId("");
         navigate('/');
       })
   };
@@ -43,15 +38,19 @@ function AddNew({ onEventFormSubmit }) {
   setEventCost(e.target.value)
   };
 
+  function handleCategory(e) {
+    setCategoryId(e.target.value)
+  }
+
   return (
     <div>
       <h3 className='add-new-event-title'>Add New Event</h3>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="categories">Choose a category:</label>
-        <select name="categories" id={categoryId}>
-          <option value="savings">Savings</option>
-          <option value="checking">Checking</option>
-          <option value="investing">Investing</option>
+        <select name="categories" onChange={handleCategory} id={categoryId}>
+          <option value="Savings">Savings</option>
+          <option value="Checking">Checking</option>
+          <option value="Investing">Investing</option>
         </select>
         <br></br>
         <input type="text" name="eventName" placeholder='Event Name' value={eventName} onChange={handleEvent}/>

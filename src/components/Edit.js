@@ -7,20 +7,21 @@ function Edit({ onEventUpdate }) {
   const { id } =useParams();
   const [editedEventName, setEditedEventName] = useState("")
   const [editedEventCost, setEditedEventCost] = useState("")
-
+  const [editedCategory, setEditedCategory] = useState("")
+ 
   function handleUpdateFormSubmit(e) {
     e.preventDefault();
 
   // patch
-  fetch(`http://localhost:9292/edit/${id}`, {
+  fetch(`http://localhost:9292/events/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       event_name: editedEventName,
-      event_cost: editedEventCost
-      // category
+      event_cost: editedEventCost,
+      category_id: editedCategory
     }),
   })
     .then((res) => res.json())
@@ -28,17 +29,22 @@ function Edit({ onEventUpdate }) {
     navigate('/')
   }
 
+  function handleCategoryChange(e) {
+    const categoryInt = parseInt(e.target.value, 10)
+    setEditedCategory(categoryInt)
+  }
+
   return (
     <div className='edit-event container'>
       <h3 className='add-new-event-title'>Edit Event</h3>
       <div>
         <h3 className='add-new-event-title'>Add New Event</h3>
-        <form action={handleUpdateFormSubmit}>
-          <label for="categories">Choose a category:</label>
-          <select name="categories" id="categories">
-            <option value="savings">Savings</option>
-            <option value="checking">Checking</option>
-            <option value="investing">Investing</option>
+        <form onSubmit={handleUpdateFormSubmit}>
+          <label htmlFor="categories">Choose a category:</label>
+          <select name="categories" onChange={handleCategoryChange} id={editedCategory}>
+            <option value="1">Savings</option>
+            <option value="2">Checking</option>
+            <option value="3">Investing</option>
           </select>
           <br></br>
           <input type="text" name="eventName" placeholder='Edit Event Name' value={editedEventName} onChange={ e => setEditedEventName(e.target.value)}/>

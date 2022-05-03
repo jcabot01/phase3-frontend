@@ -2,7 +2,7 @@ import React from 'react'
 import Event from './Event'
 
 function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will need to pass up "updated" state to App
-    
+
   return (
     <>
       <ul className="eventsList">
@@ -12,7 +12,7 @@ function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will nee
             id={event.id}
             eventName={event.event_name}
             eventCost={event.event_cost}
-            categoryName={event.category_id}
+            categoryName={event.category.category_name}
             onDeleteClick={onDeleteClick}
           />
         ))}

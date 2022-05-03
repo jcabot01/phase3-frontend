@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function Event({ id, eventName, eventCost, category, onDeleteClick }) {
-  // const categoryName = category.category_name
-  // console.log(categoryName)
+function Event({ id, eventName, eventCost, categoryName, onDeleteClick }) {
+
   
   //DELETE request; still need to deal with callback up to EventContainer up to App for state, 
   function handleDelete() {
@@ -13,16 +12,16 @@ function Event({ id, eventName, eventCost, category, onDeleteClick }) {
     onDeleteClick(id)
   };
 
-  //STILL NEED CATEGORY RENDERED BELOW!!!!!!!!!!!!!!!!!
-  //STILL NEED EPIC TOGGLE TO ACTIVATE AND UPDATE!!!!!
   return (
     
     <li className="card" key={id}>
-      <h4>{eventName}</h4>
-      <h4>${eventCost}</h4>
+      <div className='card-category-name'>
+        <h3>{categoryName}</h3>
+      </div>
+      <h4 className='card-event-name'>{eventName}</h4>
+      <h4 className='card-cost'>${eventCost}</h4>
       <button className='deleteBtn' onClick={handleDelete}>🗑️</button>
-      <Link className='editBtn' to="/edit/:id">✏️</Link>
-      {/* <Link className="nav-links" to="/addnew">Add New +</Link> */}
+      <Link className='editBtn' to={`/events/${id}/edit`}>✏️</Link>
     </li>
   )
 }

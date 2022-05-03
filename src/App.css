@@ -2,9 +2,35 @@
   margin: 0;
   padding: 0;
 }
+/* Nav & Header ===========================================================*/
+.nav-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-events-list{
+  width: 100px;
+  margin: 10px;
+  color: blue
+}
+
+.title-picture-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .pageTitle {
   color: green;
+  width: 400px;
+  text-align: center;  
+}
+
+.money-picture{
+  width: 300px;
+  margin: 10px
 }
 
 img {
@@ -12,4 +38,46 @@ img {
   border-radius: 4px;
   padding: 5px;
   width: 150px;
+}
+/* Event list =========================================================== */
+
+.eventslist{
+  
+}
+
+.card{
+  display: flex;
+  gap: 10px;
+  gap: 10px 20px; /* row-gap column gap */
+  row-gap: 20px;
+  column-gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(180, 170, 170);
+  
+
+}
+
+.card-category-name{
+  margin: 10px;
+  width: 50px;
+  font-size: small;
+  /* background color dependent upon category */
+}
+
+.card-event-name{
+  width: 300px;
+}
+
+.card-cost{
+  width: 100px;
+}
+
+.deleteBtn{
+  width: 100px;
+}
+
+.editBtn{
+  margin: 10px;
+  width: 100px;
 }
