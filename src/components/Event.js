@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-function Event({ id, eventName, eventCost, categoryName, onDeleteClick }) {
+function Event({ id, eventName, eventCost, categoryName, categoryId, onDeleteClick }) {
+ 
+  const eventInfo = { id, eventName, eventCost, categoryName, categoryId}
 
-  
-  //DELETE request; still need to deal with callback up to EventContainer up to App for state, 
+
+
+
   function handleDelete() {
     fetch(`http://localhost:9292/events/${id}`, {
       method: "DELETE",
@@ -21,7 +24,7 @@ function Event({ id, eventName, eventCost, categoryName, onDeleteClick }) {
       <h4 className='card-event-name'>{eventName}</h4>
       <h4 className='card-cost'>${eventCost}</h4>
       <button className='deleteBtn' onClick={handleDelete}>🗑️</button>
-      <Link className='editBtn' to={`/events/${id}/edit`}>✏️</Link>
+      <Link className='editBtn' to={`/events/${id}/edit`} state={eventInfo} >✏️</Link> 
     </li>
   )
 }

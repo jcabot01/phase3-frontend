@@ -10,6 +10,8 @@ import Edit from "./components/Edit";
 
 function App() {
   const [events, setEvents] = useState([]);
+  // const destructuredEvents = events.map((event) => 
+  //   event.category.category_name)
 
   useEffect( () => {
     fetch("http://localhost:9292/events")
@@ -31,9 +33,10 @@ function App() {
       }
     }); 
     setEvents(updatedEvents);
-  };
+  }
 
   function onEventFormSubmit(newEvent) {
+    console.log(newEvent)
     setEvents([...events, newEvent])
   };
 
@@ -43,7 +46,7 @@ function App() {
         <Routes>
           <Route path ="/events/new" element={<AddNew onEventFormSubmit={onEventFormSubmit} />} />
           <Route path ="/" element={<EventContainer events={events} onDeleteClick={onDeleteClick} />} />
-          <Route path ="/events/:id/edit" element={<Edit onEventUpdate={onEventUpdate} />} /> 
+          <Route path ="/events/:id/edit" element={<Edit events={events} onEventUpdate={onEventUpdate} />} /> 
           <Route path ="*" element="404 Page Not Found"/>
         </Routes>
     </Router>

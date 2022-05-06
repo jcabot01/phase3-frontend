@@ -24,7 +24,7 @@
 
 .pageTitle {
   color: green;
-  width: 400px;
+  width: 100%;
   text-align: center;  
 }
 
@@ -37,16 +37,17 @@ img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 150px;
+  width: 100%;
 }
 /* Event list =========================================================== */
 
-.eventslist{
+/* .eventslist{
   
-}
+} */
 
 .card{
   display: flex;
+  flex-direction: row;
   gap: 10px;
   gap: 10px 20px; /* row-gap column gap */
   row-gap: 20px;
@@ -54,8 +55,7 @@ img {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(180, 170, 170);
-  
-
+  border: 5px;
 }
 
 .card-category-name{
@@ -74,6 +74,7 @@ img {
 }
 
 .deleteBtn{
+  /* add hover */
   width: 100px;
 }
 
@@ -81,3 +82,33 @@ img {
   margin: 10px;
   width: 100px;
 }
+
+/* AddNew ==================================================================== */
+.add-new-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-new-event-title{
+  width: 100%;
+  text-align: center;
+}
+
+.dropdown-container{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.dropdowm-label{
+  text-align: center;
+}
+
+.input-container{
+  display: flex;
+  justify-content: center;
+}
+
+
