@@ -41,9 +41,30 @@ img {
 }
 /* Event list =========================================================== */
 
-/* .eventslist{
-  
-} */
+.table-header{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  gap: 10px 20px; /* row-gap column gap */
+  row-gap: 20px;
+  column-gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-header{
+  margin: 10px;
+  width: 50px;
+  font-size: small;
+}
+
+.event-header{
+  width: 300px;
+}
+
+.cost-header{
+  width: 500px;
+}
 
 .card{
   display: flex;

@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
-// import { useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 function AddNew({ onEventFormSubmit }) {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [categoryId, setCategoryId] = useState("")  //state of category
   const [eventName, setEventName] = useState(""); //state of eventName
   const [eventCost, setEventCost] = useState(""); //state of amount
 
-  function handleFormSubmit(e) {  //handle submit of new event obj
+  function handleFormSubmit(e) {
     e.preventDefault();
 
+ 
     const addNewEvent = {
       event_name: eventName,
       event_cost: eventCost,
       category_id: categoryId
     };
-    console.log(addNewEvent)
-    fetch("http://localhost:3000/events", {
+ 
+    fetch("http://localhost:9292/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,8 +26,26 @@ function AddNew({ onEventFormSubmit }) {
     })
       .then((res) => res.json())
       .then((newEvent) => {
-        onEventFormSubmit(newEvent);
-        // navigate('/');
+        let categoryName
+          if (newEvent.category_id === 1) {
+              categoryName = "Savings"
+            } else if (newEvent.category_id === 2) {
+                categoryName = "Checking"
+            } else {
+                categoryName = "Investing"
+          }
+        const itemCategory = { //add id: id: categoryId
+          categoryId: categoryId,
+          category_name: categoryName,
+          created_at: null,
+          updated_at: null
+        }
+        let updatedEvent = {
+          ...newEvent 
+        }
+        updatedEvent.category = itemCategory      
+        onEventFormSubmit(updatedEvent);
+        navigate('/');
       })
   };
 

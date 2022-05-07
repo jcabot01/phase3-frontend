@@ -5,9 +5,6 @@ function Event({ id, eventName, eventCost, categoryName, categoryId, onDeleteCli
  
   const eventInfo = { id, eventName, eventCost, categoryName, categoryId}
 
-
-
-
   function handleDelete() {
     fetch(`http://localhost:9292/events/${id}`, {
       method: "DELETE",
@@ -19,7 +16,7 @@ function Event({ id, eventName, eventCost, categoryName, categoryId, onDeleteCli
     
     <li className="card" key={id}>
       <div className='card-category-name'>
-        <h3>{categoryName}</h3>
+        <h4>{categoryName}</h4>
       </div>
       <h4 className='card-event-name'>{eventName}</h4>
       <h4 className='card-cost'>${eventCost}</h4>

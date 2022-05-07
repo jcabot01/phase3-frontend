@@ -24,6 +24,8 @@ function App() {
     setEvents(remaingingEvents)
   };
 
+  //get categories
+
   function onEventUpdate(updatedEventObj) {
     const updatedEvents = events.map((event) => {
       if (event.id === updatedEventObj.id) {
@@ -36,10 +38,12 @@ function App() {
   }
 
   function onEventFormSubmit(newEvent) {
-    console.log(newEvent)
-    setEvents([...events, newEvent])
+    const updatedEvents = [...events, newEvent]
+    console.log(updatedEvents)
+    setEvents(updatedEvents)
   };
 
+  //setEvents in patch too
   return (
     <Router>
       <Nav />
