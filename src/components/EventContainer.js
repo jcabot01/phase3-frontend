@@ -4,14 +4,16 @@ import Event from './Event'
 function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will need to pass up "updated" state to App
 //eventUpdate
   return (
-    <>
+    <div className="main-container-events">
     
       <div className='table-header'>
-        <h5 className='category-header'>Category</h5>
-        <h5 className='event-header'>Event</h5>
-        <h5 className='cost-header'>Cost</h5>
+        <h5 className='category-name-title'><u>Category:</u></h5>
+        <h5 className='event-name-title'><u>Event:</u></h5>
+        <h5 className='cost-title'><u>Cost:</u></h5>
+        <div className='deleteBtn-title'></div>
+        <div className='editBtn-title'></div>
       </div>
-      <ul className="eventsList">
+      <ul className='cards-container'>
         {events.map((event) => (
           <Event
             key={event.id}
@@ -24,7 +26,7 @@ function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will nee
           />
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 

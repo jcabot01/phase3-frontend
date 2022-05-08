@@ -26,25 +26,25 @@ function AddNew({ onEventFormSubmit }) {
     })
       .then((res) => res.json())
       .then((newEvent) => {
-        let categoryName
-          if (newEvent.category_id === 1) {
+        let categoryName //create a variable that is reassignable
+          if (newEvent.category_id === 1) { //if HTTP response.category_id = X, then set categoryName to a particular category
               categoryName = "Savings"
             } else if (newEvent.category_id === 2) {
                 categoryName = "Checking"
             } else {
                 categoryName = "Investing"
           }
-        const itemCategory = { //add id: id: categoryId
-          categoryId: categoryId,
-          category_name: categoryName,
+        const itemCategory = { //setup the nested object to update state; the GET request is expecting this format
+          categoryId: categoryId, //pulled in from State on this page
+          category_name: categoryName, //set to a string from the conditional statement above
           created_at: null,
           updated_at: null
         }
-        let updatedEvent = {
+        let updatedEvent = { //create a new variable and set it to a copy of the HTTP response
           ...newEvent 
         }
-        updatedEvent.category = itemCategory      
-        onEventFormSubmit(updatedEvent);
+        updatedEvent.category = itemCategory //the nested category object = the object variable we created
+        onEventFormSubmit(updatedEvent); //everything is bundled together now, update State of App with this object ( with a nested category object)
         navigate('/');
       })
   };
@@ -77,12 +77,12 @@ function AddNew({ onEventFormSubmit }) {
         </div>
         <br></br>
         <div className='input-container'>
-          <input className='event-input' type="text" name="eventName" placeholder='Event Name' value={eventName} onChange={handleEvent}/>
-          <input className='cost-input'type="text" name="eventCost" placeholder='Event Cost' value={eventCost} onChange={handleCost}/>
+          <input className='add-new-text-area' type="text" name="eventName" placeholder='Event Name' value={eventName} onChange={handleEvent}/>
+          <input className='add-new-text-area'type="text" name="eventCost" placeholder='Event Cost' value={eventCost} onChange={handleCost}/>
         <br></br>
         </div>
         <div className='submit-container'>
-         <input type='submit' value='Submit'/>
+         <input type='submit' value='Add New Event!'/>
         </div>
       </form>
     </div>

@@ -1,7 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+
 /* Nav & Header ===========================================================*/
 .nav-container{
   display: flex;
@@ -39,82 +36,139 @@ img {
   padding: 5px;
   width: 100%;
 }
-/* Event list =========================================================== */
+/* Homepage Event Table ===================================================== */
+
+.main-container-events{ /*main container for all cards and table headers*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 20px;
+  margin-left: 12px;
+  margin-right: 12px;
+  background-color: rgb(43, 226, 156);
+}
 
 .table-header{
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  gap: 10px 20px; /* row-gap column gap */
-  row-gap: 20px;
-  column-gap: 40px;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  margin-left: -3px;
+  height: 100%;
+  width: 100%;
+  justify-content: flex-start;
+  background-color: rgb(224, 252, 252);
+  border: 2px solid black;
+  border-radius: 3px;
 }
 
-.category-header{
-  margin: 10px;
+/* table titles =================================================*/
+
+.category-name-title{
+  display: flex;
+  justify-content: center;
+  font-size: medium;
+  width: 80px;
+  margin-left: 20px;
+  flex-grow: 1;
+}
+
+.event-name-title{
+  font-size: medium;
+  margin-left: 20px;
+  width: 250px;
+  flex-grow: 1;
+}
+
+.cost-title{
+  font-size: medium;
+  margin-left: 20px;
   width: 50px;
-  font-size: small;
+  flex-grow: 1;
 }
 
-.event-header{
-  width: 300px;
+.deleteBtn-title{
+  
+  width: 50px;
+  flex-grow: 1;
 }
 
-.cost-header{
-  width: 500px;
+.editBtn-title{
+  
+  width: 50px;
+  flex-grow: 1;
 }
-
+/* cards list ============================================================= */
+.cards-container{
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  display: flex;
+  margin: 10px;
+  margin-right: 14px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
 .card{
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  gap: 10px 20px; /* row-gap column gap */
-  row-gap: 20px;
-  column-gap: 40px;
-  justify-content: space-between;
   align-items: center;
-  background-color: rgb(180, 170, 170);
-  border: 5px;
+  width: 100%;
+  border: 2px solid black;
+  background-color: rgb(129, 201, 129)  
 }
 
 .card-category-name{
+  width: 80px;
   margin: 10px;
-  width: 50px;
-  font-size: small;
-  /* background color dependent upon category */
+  background-color: bisque;
+  border-radius: 3px;
+  text-align: center;
+  flex-grow: 1;
 }
 
 .card-event-name{
-  width: 300px;
+  margin: 10px;
+  width: 250px;
+  flex-grow: 1;
 }
 
 .card-cost{
-  width: 100px;
+  width: 50px;
+  background-color: white;
+  border-radius: 3px;
+  flex-grow: 1;
 }
 
 .deleteBtn{
-  /* add hover */
-  width: 100px;
+  margin-left: 12px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  flex-grow: 1;
 }
 
 .editBtn{
-  margin: 10px;
-  width: 100px;
+  margin-left: 12px;
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  flex-grow: 1;
 }
 
-/* AddNew ==================================================================== */
+/* AddNew Component============================================================= */
 .add-new-container{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: rgb(118, 184, 118);
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 15px;
 }
 
 .add-new-event-title{
-  width: 100%;
+  width: 50%;
   text-align: center;
+  background-color: rgb(219, 214, 214);
 }
 
 .dropdown-container{
@@ -125,11 +179,25 @@ img {
 
 .dropdowm-label{
   text-align: center;
+  margin-right: 10px;
 }
 
 .input-container{
   display: flex;
   justify-content: center;
+  margin: 5px
 }
+
+.add-new-text-area{
+  margin: 5px
+}
+
+.submit-container{
+  display: flex;
+  justify-content: center;
+  margin: 10px
+}
+/* Edit component ============================================== */
+
 
 

@@ -59,14 +59,14 @@ function Edit({ onEventUpdate }) {
   }
 
   function handleCategoryChange(e) {
-    console.log(e.target.value)
     const categoryInt = parseInt(e.target.value, 10)
     setEditedCategoryId(categoryInt)
   } 
 
   function handleEditedEventCost(e) {
-    const costInt = parseInt(e.target.value, 10)
-    setEditedEventCost(costInt)
+    setEditedEventCost(e.target.value)
+    // const costInt = parseInt(e.target.value, 10)
+    // setEditedEventCost(costInt)
   };
 
   function handleEditedEventName(e) {
@@ -76,7 +76,7 @@ function Edit({ onEventUpdate }) {
 
 
   return (
-    <div className='edit-event container'>
+    <div className='add-new-container'>
       <h3 className='add-new-event-title'>Edit Event</h3>
       <div>
         <form onSubmit={handleUpdateFormSubmit}>
@@ -90,9 +90,14 @@ function Edit({ onEventUpdate }) {
             </select>
           </div>
           <br></br>
-          <input type="text" name="eventName" placeholder='Edit Event Name' value={editedEventName} onChange={handleEditedEventName}/>
-          <input type="text" name="eventCost" placeholder='Edit Event Cost' value={editedEventCost} onChange={handleEditedEventCost}/>
-          <input type='submit' value='Update'/>
+          <div className='input-container'>
+            <input type="text" className="add-new-text-area" placeholder='Edit Event Name' value={editedEventName} onChange={handleEditedEventName}/>
+            <input type="text" className="add-new-text-area" placeholder='Edit Event Cost' value={editedEventCost} onChange={handleEditedEventCost}/>
+          </div>
+          
+          <div className='submit-container'>
+            <input type='submit' value='Update'/>
+          </div>
         </form>
       </div>
     </div>

@@ -38,7 +38,7 @@ function App() {
   }
 
   function onEventFormSubmit(newEvent) {
-    const updatedEvents = [...events, newEvent]
+    const updatedEvents = [newEvent, ...events]
     console.log(updatedEvents)
     setEvents(updatedEvents)
   };
