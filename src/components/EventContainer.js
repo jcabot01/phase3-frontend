@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Event from './Event'
 
-function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will need to pass up "updated" state to App
-//eventUpdate
+function EventContainer({ events, onDeleteClick }) { 
+// const [categories, setCategories] = useState("") //probably need to move this up to App, so that events can be rendered meeting the toggled categories
+
+//onClick, perform GET request, get all, response is filtered by conditional
   return (
+    <div>
+    <div className='category-toggle-container'>
+
+    </div>
     <div className="main-container-events">
-    
       <div className='table-header'>
         <h5 className='category-name-title'><u>Category:</u></h5>
         <h5 className='event-name-title'><u>Event:</u></h5>
@@ -26,6 +31,7 @@ function EventContainer({ events, onDeleteClick }) { // onUpdateEvent //will nee
           />
         ))}
       </ul>
+    </div>
     </div>
   )
 }

@@ -22,7 +22,6 @@ function Edit({ onEventUpdate }) {
     event_cost: editedEventCost,
     category_id: editedCategoryId,
   }
-  console.log(editedPackage)
 
   // patch
   fetch(`http://localhost:9292/events/${id}`, {

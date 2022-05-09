@@ -7,12 +7,9 @@ import EventContainer from "./components/EventContainer";
 import Edit from "./components/Edit";
 
 
-
 function App() {
   const [events, setEvents] = useState([]);
-  // const destructuredEvents = events.map((event) => 
-  //   event.category.category_name)
-
+  
   useEffect( () => {
     fetch("http://localhost:9292/events")
       .then((res) => res.json())
@@ -23,8 +20,6 @@ function App() {
     const remaingingEvents = events.filter((event) => event.id !== id)
     setEvents(remaingingEvents)
   };
-
-  //get categories
 
   function onEventUpdate(updatedEventObj) {
     const updatedEvents = events.map((event) => {
@@ -39,17 +34,15 @@ function App() {
 
   function onEventFormSubmit(newEvent) {
     const updatedEvents = [newEvent, ...events]
-    console.log(updatedEvents)
     setEvents(updatedEvents)
   };
 
-  //setEvents in patch too
   return (
     <Router>
       <Nav />
         <Routes>
           <Route path ="/events/new" element={<AddNew onEventFormSubmit={onEventFormSubmit} />} />
-          <Route path ="/" element={<EventContainer events={events} onDeleteClick={onDeleteClick} />} />
+          <Route path ="/" element={<EventContainer events={events} onDeleteClick={onDeleteClick}/>} />
           <Route path ="/events/:id/edit" element={<Edit events={events} onEventUpdate={onEventUpdate} />} /> 
           <Route path ="*" element="404 Page Not Found"/>
         </Routes>
