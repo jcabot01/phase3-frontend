@@ -36,6 +36,31 @@ img {
   padding: 5px;
   width: 100%;
 }
+/* Checkbox filter area ==================================================== */
+.category-toggle-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.category-checkbox-title{
+  text-align: center;
+  width: 100%;
+}
+
+.checkbox-container{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+}
+
+.category-checkbox{
+  width: 100%;
+  margin-left: 60px;
+  margin-right: 60px;
+  justify-content: center;
+  border: 1px solid black
+}
 /* Homepage Event Table ===================================================== */
 
 .main-container-events{ /*main container for all cards and table headers*/
@@ -202,5 +227,5 @@ img {
 }
 /* Edit component ============================================== */
 
-
+/* same as AddNew component */
 
