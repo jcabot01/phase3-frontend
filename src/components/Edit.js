@@ -7,11 +7,9 @@ function Edit({ onEventUpdate }) {
   const location = useLocation() //object key.state from <Event/>
   const navigate = useNavigate();
   const { id } =useParams();
-  const [editedEventName, setEditedEventName] = useState(location.state.eventName)  //eventName from <Event/> Link
-  const [editedEventCost, setEditedEventCost] = useState(location.state.eventCost)  //eventCost from <Event/> Link
-  const [editedCategoryId, setEditedCategoryId] = useState(location.state.categoryId)
-  // const [editedCategoryName, setEditedCategoryName] = useState(location.state.categoryName)
- 
+  const [editedEventName, setEditedEventName] = useState(location.state.eventName)  //eventName from <Event/> Link via useLocation
+  const [editedEventCost, setEditedEventCost] = useState(location.state.eventCost)  //eventCost from <Event/> Link via useLocation
+  const [editedCategoryId, setEditedCategoryId] = useState(location.state.categoryId) //event.category_id from <Event /> Link via useLocation
   
  
   function handleUpdateFormSubmit(e) {
@@ -23,7 +21,6 @@ function Edit({ onEventUpdate }) {
     category_id: editedCategoryId,
   }
 
-  // patch
   fetch(`http://localhost:9292/events/${id}`, {
     method: "PATCH",
     headers: {
@@ -64,8 +61,6 @@ function Edit({ onEventUpdate }) {
 
   function handleEditedEventCost(e) {
     setEditedEventCost(e.target.value)
-    // const costInt = parseInt(e.target.value, 10)
-    // setEditedEventCost(costInt)
   };
 
   function handleEditedEventName(e) {
