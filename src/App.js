@@ -9,6 +9,8 @@ import Edit from "./components/Edit";
 
 function App() {
   const [events, setEvents] = useState([]);
+  const [category, setCategory] = useState("All") //by default "all" is selected
+  console.log(category)
   
   useEffect( () => {
     fetch("http://localhost:9292/events")
@@ -36,32 +38,32 @@ function App() {
     const updatedEvents = [newEvent, ...events]
     setEvents(updatedEvents)
   };
-
-  // checkbox toggles  ===Checkout grocery lab/shopping cart
-  // if savings is checked 
-  // else
-  function showSavings(showSavings){
-    console.log(showSavings)
-    const copyOfAllEvents = [...events]
-    const onlySavings = events.filter((event) => event.category_id === showSavings)
-    console.log(onlySavings)
-    return (showSavings === 1 ? setEvents(onlySavings) : setEvents(copyOfAllEvents))
-  }
-  function showChecking(showChecking){
-    console.log(showChecking)
-    const copyOfAllEvents = [...events]
-    const onlyChecking = events.filter((event) => event.category_id === showChecking)
-    console.log(onlyChecking)
-    return (showChecking === 2 ? setEvents(onlyChecking) : setEvents(copyOfAllEvents))
-  }
-  function showInvesting(showInvesting){
-    console.log(showInvesting)
-    const copyOfAllEvents = [...events]
-    console.log(copyOfAllEvents)
-    const onlyInvesting = events.filter((event) => event.category_id === showInvesting)
-    console.log(onlyInvesting)
-    return (showInvesting === 3 ? setEvents(onlyInvesting) : setEvents(copyOfAllEvents))
-  }
+  
+  const eventsCategories = ["All", "Savings", "Checking", "Investing"]
+  const filteredEvents = events.filter((event) => category === "All" || event.category.category_name === category)
+  console.log(filteredEvents)
+  // function showSavings(showSavings){
+  //   console.log(showSavings)
+  //   const copyOfAllEvents = [...events]
+  //   const onlySavings = events.filter((event) => event.category_id === showSavings)
+  //   console.log(onlySavings)
+  //   return (showSavings === 1 ? setEvents(onlySavings) : setEvents(copyOfAllEvents))
+  // }
+  // function showChecking(showChecking){
+  //   console.log(showChecking)
+  //   const copyOfAllEvents = [...events]
+  //   const onlyChecking = events.filter((event) => event.category_id === showChecking)
+  //   console.log(onlyChecking)
+  //   return (showChecking === 2 ? setEvents(onlyChecking) : setEvents(copyOfAllEvents))
+  // }
+  // function showInvesting(showInvesting){
+  //   console.log(showInvesting)
+  //   const copyOfAllEvents = [...events]
+  //   console.log(copyOfAllEvents)
+  //   const onlyInvesting = events.filter((event) => event.category_id === showInvesting)
+  //   console.log(onlyInvesting)
+  //   return (showInvesting === 3 ? setEvents(onlyInvesting) : setEvents(copyOfAllEvents))
+  // }
   
 
   return (
@@ -70,12 +72,11 @@ function App() {
         <Routes>
           <Route path ="/events/new" element={<AddNew onEventFormSubmit={onEventFormSubmit} />} />
           <Route path ="/" element={<EventContainer 
-                                      showSavings={showSavings} 
-                                      showChecking={showChecking}
-                                      showInvesting={showInvesting}
-                                      events={events} 
-                                      onDeleteClick={onDeleteClick}/>} 
-                                      />
+                                      events={filteredEvents} 
+                                      onSelectedCategory={setCategory}
+                                      selectedCategory={category}
+                                      eventsCategories={eventsCategories} 
+                                      onDeleteClick={onDeleteClick}/>} />
           <Route path ="/events/:id/edit" element={<Edit events={events} onEventUpdate={onEventUpdate} />} /> 
           <Route path ="*" element="404 Page Not Found"/>
         </Routes>

@@ -1,77 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Event from './Event'
 
-function EventContainer({ showSavings, showChecking, showInvesting, events, onDeleteClick }) { 
-  const [savingsChecked, setSavingsChecked] = useState(false)
-  const [checkingChecked, setCheckingChecked] = useState(false)
-  const [investingChecked, setInvestingChecked] = useState(false)
 
-  function handleSavingsChange(e) {
-    setSavingsChecked(!savingsChecked)
-    const parsedSavingsValue = parseInt(e.target.value)
-    if (savingsChecked === false) {
-     showSavings(parsedSavingsValue)
-    } else {
-      return showSavings(0)}
-  }
-
-  function handleCheckingChange(e) {
-    setCheckingChecked(!checkingChecked)
-    const parsedCheckingValue = parseInt(e.target.value)
-    if (checkingChecked === false) {
-     showChecking(parsedCheckingValue)
-    } else {
-      return showChecking(0)}
-  }
-
-  function handleInvestingChange(e) {
-    setInvestingChecked(!investingChecked)
-    const parsedInvestingValue = parseInt(e.target.value)
-    if (investingChecked === false) {
-     showInvesting(parsedInvestingValue)
-    } else {
-      return showInvesting(0)}
-  }
+function EventContainer({ events, onSelectedCategory, selectedCategory, eventsCategories, onDeleteClick }) { 
+  const categoryButtons = eventsCategories.map((category) => {
+    const className = category === selectedCategory ? "selected" : null;
+    console.log(className)
+    return(
+      <button
+        key={category}
+        className={className}
+        onClick={() => onSelectedCategory(category)}
+        >
+          {category}
+        </button>
+    );
+  });
   return (
     <div>
-      <div className='category-toggle-container'>
-        <h3 className='category-checkbox-title'>Check box to sort by category</h3>
-        <div className='checkbox-container'>
-          <div className='category-checkbox'>
-            <label>
-              <input 
-                type="checkbox"
-                checked={savingsChecked}
-                value="1"
-                onChange={handleSavingsChange}
-              />
-              Savings
-            </label>
-          </div>
-          <div className='category-checkbox'>
-            <label>
-              <input 
-                type="checkbox"
-                checked={checkingChecked}
-                value="2"
-                onChange={handleCheckingChange}
-              />
-              Checking
-            </label>
-          </div>
-          <div className='category-checkbox'>
-            <label>
-              <input 
-                type="checkbox"
-                checked={investingChecked}
-                value="3"
-                onChange={handleInvestingChange}
-              />
-              Investing
-            </label>
-          </div>
+      <div className='categories'>
+        <h3 className='category-buttons'>Select a Category to show</h3>
+        <div className='category-buttons'>
+          {categoryButtons} 
         </div>
-      </div>
+      </div> 
+        
       <div className="main-container-events">
         <div className='table-header'>
           <h5 className='category-name-title'><u>Category:</u></h5>

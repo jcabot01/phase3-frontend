@@ -37,7 +37,7 @@ img {
   width: 100%;
 }
 /* Checkbox filter area ==================================================== */
-.category-toggle-container{
+/* .category-toggle-container{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -59,8 +59,8 @@ img {
   margin-left: 60px;
   margin-right: 60px;
   justify-content: center;
-  border: 1px solid black
-}
+  border: 1px solid black 
+}*/
 /* Homepage Event Table ===================================================== */
 
 .main-container-events{ /*main container for all cards and table headers*/
@@ -73,6 +73,19 @@ img {
   background-color: rgb(43, 226, 156);
 }
 
+.categories{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.category-buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
 .table-header{
   display: flex;
   justify-content: flex-start;
