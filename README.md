@@ -8,7 +8,7 @@ This is application keeps track of all of your monthly expenses in your checking
 
 
 ## User Journey
-Once the user opens the app, they are presented with their existing financial events (be it checking, savings, or investing).  The user may click on the trash can 🗑️ to delete the event.  The user may then click on the pencil ✏️ to edit an event.  They have full control of the event; they can edit the category, event name, and cost.  If the user wants to add a new entry, they click the "Add New +" link at the top of the page.  Each new entry will be rendered to the top of the event container.  
+Once the user opens the app, they are presented with their existing financial events (be it checking, savings, or investing).  The user may click on the trash can 🗑️ to delete the event.  The user may then click on the pencil ✏️ to edit an event.  They have full control of the event; they can edit the category, event name, and cost.  If the user wants to add a new entry, they click the "Add New +" link at the top of the page.  Each new entry will be rendered to the top of the event container.  Lastly, if the user wants to filter all of the events based on a category, they may use the toggle buttons above the list.
 
 ## Supporting Tech
 This application uses a Ruby backend, supported with an SQLite3 datebase, ActiveRecord for database modeling & persistence, and Sinatra as the server between the frontend and backend.  The frontend is supported with a React.js framework, using react-router, and functional components.
