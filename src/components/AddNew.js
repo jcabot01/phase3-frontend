@@ -10,7 +10,6 @@ function AddNew({ onEventFormSubmit }) {
   function handleFormSubmit(e) {
     e.preventDefault();
 
- 
     const addNewEvent = {
       event_name: eventName,
       event_cost: eventCost,
@@ -60,7 +59,7 @@ function AddNew({ onEventFormSubmit }) {
   function handleCategory(e) {
     const categoryInt = parseInt(e.target.value, 10)
     setCategoryId(categoryInt)
-  }
+  };
 
   return (
     <div className='add-new-container'>

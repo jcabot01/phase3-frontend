@@ -5,7 +5,6 @@ import Event from './Event'
 function EventContainer({ events, onSelectedCategory, selectedCategory, eventsCategories, onDeleteClick }) { 
   const categoryButtons = eventsCategories.map((category) => {
     const className = category === selectedCategory ? "selected" : null;
-    console.log(className)
     return(
       <button
         key={category}
@@ -13,9 +12,10 @@ function EventContainer({ events, onSelectedCategory, selectedCategory, eventsCa
         onClick={() => onSelectedCategory(category)}
         >
           {category}
-        </button>
+      </button>
     );
   });
+
   return (
     <div>
       <div className='categories'>

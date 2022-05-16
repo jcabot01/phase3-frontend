@@ -11,7 +11,6 @@ function Edit({ onEventUpdate }) {
   const [editedEventCost, setEditedEventCost] = useState(location.state.eventCost)  //eventCost from <Event/> Link via useLocation
   const [editedCategoryId, setEditedCategoryId] = useState(location.state.categoryId) //event.category_id from <Event /> Link via useLocation
   
- 
   function handleUpdateFormSubmit(e) {
     e.preventDefault();
 

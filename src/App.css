@@ -60,6 +60,10 @@ img {
   justify-content: center;
 }
 
+.selected{
+  background-color: rgb(224, 252, 252);
+}
+
 .table-header{
   display: flex;
   justify-content: flex-start;
