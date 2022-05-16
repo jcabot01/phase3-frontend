@@ -15,12 +15,12 @@ function Edit({ onEventUpdate }) {
   function handleUpdateFormSubmit(e) {
     e.preventDefault();
 
-  const editedPackage = {
-    event_name: editedEventName,
-    event_cost: editedEventCost,
-    category_id: editedCategoryId,
-  }
-
+    const editedPackage = {
+      event_name: editedEventName,
+      event_cost: editedEventCost,
+      category_id: editedCategoryId,
+    }
+    
   fetch(`http://localhost:9292/events/${id}`, {
     method: "PATCH",
     headers: {
@@ -51,12 +51,6 @@ function Edit({ onEventUpdate }) {
       onEventUpdate(patchEvent);
       navigate('/')
     });
-    
-  }
-
-  function handleCategoryChange(e) {
-    const categoryInt = parseInt(e.target.value, 10)
-    setEditedCategoryId(categoryInt)
   } 
 
   function handleEditedEventCost(e) {
@@ -67,7 +61,10 @@ function Edit({ onEventUpdate }) {
     setEditedEventName(e.target.value)
   };
 
-
+  function handleCategoryChange(e) {
+    const categoryInt = parseInt(e.target.value, 10)
+    setEditedCategoryId(categoryInt)
+  };
 
   return (
     <div className='add-new-container'>

@@ -50,11 +50,11 @@ function AddNew({ onEventFormSubmit }) {
   };
 
   function handleEvent(e) {
-  setEventName(e.target.value)
+    setEventName(e.target.value)
   };
 
   function handleCost(e) {
-  setEventCost(e.target.value)
+   setEventCost(e.target.value)
   };
 
   function handleCategory(e) {
