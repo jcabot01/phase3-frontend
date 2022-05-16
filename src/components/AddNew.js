@@ -26,8 +26,8 @@ function AddNew({ onEventFormSubmit }) {
     })
       .then((res) => res.json())
       .then((newEvent) => {
-        let categoryName //create a variable that is reassignable
-          if (newEvent.category_id === 1) { //if HTTP response.category_id = X, then set categoryName to a particular category
+        let categoryName 
+          if (newEvent.category_id === 1) {
               categoryName = "Savings"
             } else if (newEvent.category_id === 2) {
                 categoryName = "Checking"
